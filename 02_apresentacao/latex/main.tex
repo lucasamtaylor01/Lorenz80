@@ -14,9 +14,9 @@
 % Disponível em: https://github.com/lucasamtaylor01/IME-template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % CLASSE DO DOCUMENTO E CONFIGURAÇÕES BÁSICAS
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 \documentclass[
     11pt,               % Tamanho padrão da fonte
     % t,                % Alinhar verticalmente ao topo
@@ -24,9 +24,9 @@
 ]{beamer}
 \graphicspath{{img/}}         % Define o diretório das imagens
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % PACOTES NECESSÁRIOS
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 \usepackage{
     booktabs,     % Melhora a aparência das linhas em tabelas
     palatino,     % Define Palatino como fonte principal
@@ -35,9 +35,9 @@
 \usepackage[default]{opensans}  % Define Open Sans como fonte secundária
 \input{config/code_langs}       % Importa configurações para highlight de código
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % CONFIGURAÇÃO DO TEMA
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % Tema Base
 \usetheme{Boadilla}                          % Define o tema principal
 \useinnertheme{circles}                      % Tema interno com círculos
@@ -66,23 +66,23 @@
 \usepackage{multicol}
 \usepackage{tikz}
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % BIBLIOGRAFIA
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 \usepackage[style=alphabetic,backend=biber]{biblatex}
 \addbibresource{bibliografia.bib}
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % INFORMAÇÕES DA APRESENTAÇÃO
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 \title[Lorenz 80]{Um breve estudo do Modelo Lorenz 80}
 \author[TAYLOR, Lucas A.]{Lucas Amaral Taylor}            
 \institute[IME-USP]{Instituto de Matemática e Estatística \\ (IME-USP)}
 \date[2025]{Fevereiro / 2025}
 
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 % INÍCIO DO DOCUMENTO
-%----------------------------------------------------------------------------------------
+%---------------------------------------------------
 \begin{document}
 
 % Slide de título com logo
@@ -104,6 +104,8 @@
 \include{sections/section01}
 \include{sections/section02}
 \include{sections/section03}
+\include{sections/section04}
+\include{sections/section05}
 
 % Slide final
 \begin{frame}

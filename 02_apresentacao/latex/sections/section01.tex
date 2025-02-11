@@ -2,7 +2,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Características do fluido}
+\begin{frame}{\textit{Modelo PE}: Características do fluido}
 	\begin{itemize}
 		\item \textbf{Homogêneo.} A densidade do fluido é uniforme em todo volume;
 		\item \textbf{Incompressível.} O volume não muda quando submetido à pressão ($\nabla \cdot V = 0$)
@@ -11,7 +11,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: O modelo de água rasa}
+\begin{frame}{\textit{Modelo PE}: O modelo de água rasa}
 		
 	Fazendo as devidas alterações notacionais em \cite{salmon1998}, temos:
 	\begin{align}
@@ -37,7 +37,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Modelo de água rasa}
+\begin{frame}{\textit{Modelo PE}: Modelo de água rasa}
 
 
 \begin{center}
@@ -75,7 +75,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: O modelo de água rasa modificado}
+\begin{frame}{\textit{Modelo PE}: O modelo de água rasa modificado}
 	\begin{small}
 		No artigo, nos é apresentado as seguintes equações:
 		\begin{align}
@@ -106,7 +106,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Sobre os processos de difusão}
+\begin{frame}{\textit{Modelo PE}: Sobre os processos de difusão}
 	Nas equações \eqref{eq:agua-rasa-modificada-1} e \eqref{eq:agua-rasa-modificada-2}, temos dois processos de difusão:
 	\begin{enumerate}
 		\item \textbf{Difusão viscosa:} transferência do momento entre partes do fluido devido à viscosidade \textit{(exemplo: mel)};
@@ -119,7 +119,7 @@
 \end{frame}
 
 % ----------------------------
-\begin{frame}{\textit{PE Model}: Algumas observações das equações \eqref{eq:agua-rasa-modificada-1} e \eqref{eq:agua-rasa-modificada-2}}
+\begin{frame}{\textit{Modelo PE}: Algumas observações das equações \eqref{eq:agua-rasa-modificada-1} e \eqref{eq:agua-rasa-modificada-2}}
 	\begin{enumerate}
 		\item A média horizontal de $h$ e $z$ é zero;
 		\item $V(t,r)$ e $z(t,r)$ são amortecidas pelo processo de difusão de pequenas escala, este fato auxilia na simulação de fenômenos atmosféricos;
@@ -130,7 +130,7 @@
 
 
 % ----------------------------
-\begin{frame}{\textit{PE Model}: A formação de novas equações}
+\begin{frame}{\textit{Modelo PE}: A formação de novas equações}
 	A partir da \textit{Decomposição de Helmholtz}, decomposição que divide a \textit{parte rotacional} e a parte \textit{divergente}, aplicada a equação \eqref{eq:agua-rasa-modificada-2}, temos:
 	
 	\begin{equation}
@@ -147,26 +147,20 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: A formação de novas equações}
-   A partir da equação \eqref{eq:decomposicao-helmholtz} e \eqref{eq:agua-rasa-modificada-1}, obtemos as duas seguintes equações:
+\begin{frame}{\textit{Modelo PE}: A formação de novas equações}
+   A partir da equação \eqref{eq:agua-rasa-modificada-1} e \eqref{eq:decomposicao-helmholtz}, obtemos as duas seguintes equações:
    \begin{small}
        \begin{align}
            \frac{\partial \nabla^2 \chi}{\partial t} &= -\frac{1}{2}\nabla^2(\nabla \chi \cdot \nabla \chi) - \nabla \chi \cdot \nabla(\nabla^2\psi) \times \mathbf{k} + \nabla^2(\nabla \chi \cdot \nabla \psi \times \mathbf{k}) \nonumber \\
            &\quad + \nabla \cdot (\nabla^2\psi\nabla\psi) - \frac{1}{2}\nabla^2(\nabla \psi \cdot \nabla \psi) + \nu\nabla^4\chi + f\nabla^2\psi - g\nabla^2z \label{eq:equacao-basica-1} \\
            \frac{\partial \nabla^2 \psi}{\partial t} &= -\nabla \cdot (\nabla^2\psi\nabla \chi) - \nabla \psi \cdot \nabla(\nabla^2\psi) \times \mathbf{k} - f\nabla^2\chi + \nu\nabla^4\psi\label{eq:equacao-basica-2}
        \end{align}
-   \end{small}
-
-   Onde:
-   \begin{itemize}
-       \item $\frac{\partial \nabla^2 \chi}{\partial t}$: expressa a vorticidade;
-       \item $\frac{\partial \nabla^2 \psi}{\partial t}$: expressa o divergente
-   \end{itemize}
+       \end{small}
 \end{frame}
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: A formação de novas equações}
+\begin{frame}{\textit{Modelo PE}: A formação de novas equações}
    Realizando o mesmo processo, a partir das equações \eqref{eq:agua-rasa-modificada-2} e \eqref{eq:decomposicao-helmholtz}, obtemos a seguinte equação:
     \begin{equation}
         \frac{\partial z}{\partial t} = -\nabla \cdot (z - h)\nabla \chi - \nabla \psi \cdot \nabla(z - h) \times \mathbf{k} - H\nabla^2\chi + \kappa\nabla^2z + F \label{eq:equacao-basica-3}
@@ -177,7 +171,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model:} Objetivos do Processo de simplificação}
+\begin{frame}{\textit{Modelo PE:} Objetivos do Processo de simplificação}
 
 \begin{enumerate}
     \item Converter as equações \eqref{eq:equacao-basica-1}, \eqref{eq:equacao-basica-2} e \eqref{eq:equacao-basica-3} para um modelo de baixa ordem. 
@@ -188,7 +182,7 @@
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Processo de simplificação}
+\begin{frame}{\textit{Modelo PE}: Processo de simplificação}
 
 Primeiro, introduziremos três vetores adimensionais, que respeitam a seguinte condição:
 \begin{equation}
@@ -205,7 +199,7 @@ Definiremos as variáveis $a_i, b_i$ e $c_i$
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Processo de simplificação}
+\begin{frame}{\textit{Modelo PE}: Processo de simplificação}
 
 As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
 \begin{align*}
@@ -214,16 +208,16 @@ As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
     c_i &= \alpha_j \times \alpha_k \cdot \mathbf{k}
 \end{align*}
 
-\textit{Observação: Apesar dessa relação ser  válida, Lorenz apresenta outra (esta foi usado na aplicação computacional)}:
-\begin{align*}
-    b_i &= \frac{1}{2}\left(a_i - a_j - a_k\right)\\
-    c_i &= c
-\end{align*}
+Apesar dessa relação ser  válida, Lorenz apresenta outra (esta foi usado na aplicação computacional):
+    \begin{align*}
+        b_i &= \frac{1}{2}\left(a_i - a_j - a_k\right)\\
+        c_i &= c
+    \end{align*}
 \end{frame}
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Processo de simplificação}
+\begin{frame}{\textit{Modelo PE}: Processo de simplificação}
     Por fim, definimos um comprimento $L$ e criamos três funções ortogonais:
     \begin{equation*}
         \phi_i = \cos\left(\alpha_i \cdot \frac{r}{L}\right)
@@ -241,7 +235,7 @@ As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Processo de simplificação}
+\begin{frame}{\textit{Modelo PE}: Processo de simplificação}
     A partir delas, podemos introduzir as variáveis adimensionais normalizadas:
     \begin{align}
         t &= f^{-1}\tau \label{eq:variaveis-adimensionais-inicio}\\
@@ -256,12 +250,12 @@ As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model}: Processo de simplificação}
+\begin{frame}{\textit{Modelo PE}: Processo de simplificação}
     Em seguida, aplicamos as variáveis definidas em \eqref{eq:variaveis-adimensionais-inicio}-\eqref{eq:variaveis-adimensionais-fim}, nas equações \eqref{eq:equacao-basica-1}, \eqref{eq:equacao-basica-2} e \eqref{eq:equacao-basica-3}, obtemos as seguintes equações:
 
     \begin{small}
         \begin{align}
-       a_i\frac{dx_i}{d\tau} &= a_ib_1x_ix_k - c(a_i - a_k)x_iy_k  c(a_i - a_j)y_ix_k\nonumber\\
+       a_i\frac{dx_i}{d\tau} &= a_ib_ix_ix_k - c(a_i - a_k)x_iy_k  c(a_i - a_j)y_ix_k\nonumber\\
        &-2c^2y_iy_k - \nu_0a_i^2x_i + a_iy_i - a_iz_i \label{eq:equacao-principal-1}\\
        a_i\frac{dy_i}{d\tau} &= -a_ib_kx_iy_k - a_ib_iy_ix_k + c(a_k - a_i)y_iy_k - a_ix_i - \nu_0a_i^2y_i \label{eq:equacao-principal-2}\\
        \frac{dz_i}{d\tau} &= -b_kx_i(z_k - h_k) - b_i(z_i - h_i)x_k + cy_i(z_k - h_k) \nonumber\\
@@ -272,22 +266,45 @@ As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
 
 
 % ----------------------------
-
-\begin{frame}{\textit{PE Model:} Breves observações}
+\begin{frame}{\textit{Modelo PE}: Variáveis}
 
 \begin{itemize}
-    \item As variáveis com o índice 1 representam campos de velocidade e altura zonalmente uniformes
-
-    \item As variáveis com o índice 2 ou 3 representam ondas ou redemoinhos de grande escala sobrepostos.
-
-    \item Este modelo será usado em simulações e levará em consideração a permutação \eqref{eq:permutacao}
+    \item $x$ – \textbf{Potencial de velocidade}: relacionado à divergência do fluxo.
+    \item $y$ – \textbf{Função de corrente}: associado à vorticidade do fluido.
+    \item $z$ – \textbf{Elevação da superfície}: altura da superfície perturbada.
 \end{itemize}
+
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{Modelo PE}: Variáveis}
+    \begin{itemize}
+        \item $\frac{dx}{dt}$ – Ondas gravitacionais.
+        \item $\frac{dy}{dt}$ – Associado à vorticidade do fluido.
+        \item $\frac{dz}{dt}$ – Relacionado à variação da altura da superfície e sua interação com a vorticidade.
+    \end{itemize}
+
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{Modelo PE:} Breves observações}
+
+\begin{itemize}
+    \item As variáveis com índice 1 correspondem a campos de velocidade e altura zonalmente uniformes.
+
+    \item As variáveis com índice 2 ou 3 representam componentes associadas a ondas, ou redemoinhos de grande escala sobrepostos.
+
+    \item Este modelo será utilizado nas simulações do estudo, seguindo a permutação dada em \eqref{eq:permutacao}.
+\end{itemize}
+
 \end{frame}
 
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model:} Mais um processo de simplificação}
+\begin{frame}{\textit{Modelo PE:} Mais um processo de simplificação}
 
 Primeiro, definiremos $U$ e $V$:
 \begin{align}
@@ -305,7 +322,7 @@ Em seguida, $X_i$ e $Y_i$:
 
 % ----------------------------
 
-\begin{frame}{\textit{PE Model:} Mais um processo de simplificação}
+\begin{frame}{\textit{Modelo PE:} Mais um processo de simplificação}
 
 Aplicando $U, V, X_i$ e $Y_i$ em \eqref{eq:equacao-principal-1}, \eqref{eq:equacao-principal-2} e \eqref{eq:equacao-principal-3}, obtemos:
 
@@ -319,9 +336,9 @@ Este modelo também segue as permutações de \eqref{eq:permutacao}.
 
 \end{frame}
 
-% ----------------------------
+%---------------------------
 
-\begin{frame}{\textit{QG Model}: Construção do modelo}
+\begin{frame}{\textit{Modelo QG}: Construção do modelo}
 
 Da equação \eqref{eq:equacao-principal-1}:
 \begin{itemize}
@@ -338,7 +355,7 @@ Das equações \eqref{eq:equacao-principal-2} e \eqref{eq:equacao-principal-3}:
 
 % ----------------------------
 
-\begin{frame}{\textit{QG Model}: Construção do modelo}
+\begin{frame}{\textit{Modelo QG}: Construção do modelo}
 A partir deste processo obtem-se:
 \begin{align}
     (a_ig_0 + 1)\frac{dy_i}{d\tau} &= g_0c(a_k - a_j)y_jy_k - a_i(a_ig_0v_0 + \kappa_0)y_i\nonumber \\ 
