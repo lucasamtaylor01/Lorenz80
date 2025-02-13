@@ -1,0 +1,95 @@
+\section{Comparação entre os modelos} 
+
+%---------------------------------------------------
+
+\begin{frame}{Observações iniciais}
+
+É importante destacar que: para apresentação, optei por apresentar a comparação entre os modelos tomando \textbf{apenas} a base para o critério de comparação entre os modelos.
+
+Nas seções finais do artigo \cite{lorenz1980}, há uma análise detalhada sobre a estrutura do atrator e sua relação com a variedade invariante, incluindo suas propriedades qualitativas.
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Modelo dissipativo forçado}
+    Primeiro, vamos expor um Modelo dissipativo forçado genérico:
+    \begin{equation}
+        \frac{d w_i}{dt} = \sum_{j,k}^N a_{ijk} w_j w_k - \sum_j^N b_{ij} w_j + c_i \label{eq:sistema-generico}
+    \end{equation}
+
+    \begin{equation*}
+        A = \sum_{i,j,k}^N a_{ijk} w_i w_j w_k \quad \land \quad B = \sum_{i,j}^N b_{ij} w_i w_j > 0
+    \end{equation*}
+
+    \begin{equation*}
+         C = \sum_i^N c_i w_i \quad \land \quad R^2 = \sum_i^N w_i^2
+    \end{equation*}
+
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Modelo dissipativo forçado}
+
+\begin{itemize}
+    \item $A$ é um polinômio cúbico e representa as interações não lineares entre as componentes do sistema;
+    \item $B$ é um polinônio quadrático e representa a dissipação do sistema;
+    \item $C$ é um polinômio linear e representa o forçamento externo;
+    \item $R$ é a norma euclidiana ao quadrado e representa a energia total.
+\end{itemize}
+E vamos definir o $A_1$ e $C_1$ como o máximo de $A$ e $C$ e $B_1$ como o mínimo de $B$
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Condições Especiais}
+
+Os modelos analisados no artigo \cite{lorenz1980} devem satisfazer as seguintes condições:
+
+\begin{enumerate}
+    \item A condição de dissipação:
+    \begin{equation}
+        B_1^2 - 4A_1C_1 > 0 \label{eq:condicao-sis}
+    \end{equation}
+
+    \item Restrição sobre os coeficientes do sistema:
+    \begin{equation*}
+        a_{ijk} = 0, \quad \text{se} \quad j=1 \quad \vee \quad k = i
+    \end{equation*}
+
+    \item \textbf{Volume zero}: A taxa de variação do volume satisfaz
+    \begin{equation}
+        \frac{dV}{dt} = - V \sum_{i=1}^{N} b_{ii}, \label{eq:volume-zero}
+    \end{equation}
+    o que implica que o volume diminui exponencialmente ao longo do tempo devido à dissipação do sistema.
+\end{enumerate}
+
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Volume zero}
+
+A equação \eqref{eq:volume-zero} indica que:
+\begin{itemize}
+    \item Como $B$ é positivo definido, $V \to 0$ à medida que o tempo avança.
+    \item Isso implica que a dinâmica do sistema se restringe progressivamente a regiões de menor volume no espaço de fase.
+    \item Qualquer superfície inicial $S$ gera uma sequência de superfícies $S_1, S_2, \dots$, onde cada uma tem volume menor que a anterior.
+    \item No limite, a sucessão de superfícies converge para um subconjunto de dimensão inferior, caracterizando um \textbf{atrator dissipativo}.
+\end{itemize}
+
+\end{frame}
+
+
+%---------------------------------------------------
+
+\begin{frame}{Relacionando o modelo genérico com os modelos construídos}
+
+\begin{enumerate}
+    \item \textbf{Modelo QG.} No modelo QG, a energia total é aproximadamente conservada pelos termos quadráticos. Além disso, a dissipação introduzida pelos processos de difusão age de forma análoga ao termo dissipativo do sistema genérico \eqref{eq:sistema-generico}. Assim, o modelo QG possui um atrator de \textbf{volume zero}.
+
+    
+    \item \textbf{Modelo PE.} Apesar do modelo PE não conservar exatamente a energia total, se $F_1^2 +F_2^2+F_3^2$ for suficientemente pequeno, a condição \eqref{eq:condicao-sis} é satisfeita. Nesse caso, as trajetórias do sistema permanecem limitadas e o atrator tem \textbf{volume zero}.
+\end{enumerate}
+
+\end{frame}
