@@ -42,46 +42,54 @@ E vamos definir o $A_1$ e $C_1$ como o máximo de $A$ e $C$ e $B_1$ como o míni
 
 %---------------------------------------------------
 
-\begin{frame}{Condições especiais}
+\begin{frame}{Condições Especiais}
 
-Os modelos de interesse do artigo \cite{lorenz1980} as seguintes condições:
+Os modelos analisados no artigo \cite{lorenz1980} devem satisfazer as seguintes condições:
+
 \begin{enumerate}
-    \item \begin{equation*}
-        B_1^2 - 4A_1C_1 > 0 \label{eq:condicao-sis}
-    \end{equation*}
-    \item $a_{ijk} = 0 \text{, se } j=1 \quad \vee \quad k = i$
-    \item \textbf{Volume zero}
+    \item A condição de dissipação:
     \begin{equation}
-        \frac{dV}{dt} = - V \sum_i^N b_{ii} \label{eq:volume-zero}
+        B_1^2 - 4A_1C_1 > 0 \label{eq:condicao-sis}
     \end{equation}
+
+    \item Restrição sobre os coeficientes do sistema:
+    \begin{equation*}
+        a_{ijk} = 0, \quad \text{se} \quad j=1 \quad \vee \quad k = i
+    \end{equation*}
+
+    \item \textbf{Volume zero}: A taxa de variação do volume satisfaz
+    \begin{equation}
+        \frac{dV}{dt} = - V \sum_{i=1}^{N} b_{ii}, \label{eq:volume-zero}
+    \end{equation}
+    o que implica que o volume diminui exponencialmente ao longo do tempo devido à dissipação do sistema.
 \end{enumerate}
 
 \end{frame}
-
 
 %---------------------------------------------------
 
 \begin{frame}{Volume zero}
 
-A equação \eqref{eq:volume-zero} mostra que:
+A equação \eqref{eq:volume-zero} indica que:
 \begin{itemize}
-    \item Como $B$ é definido positivo, temos $V \to 0$ exponencialmente.
-    \item Isso implica que a dinâmica do sistema restringe-se progressivamente a conjuntos de menor volume.
-    \item Qualquer superfície inicial $S$ gera uma sequência \( S_1, S_2, \dots \), cada uma envolvendo um volume menor que a anterior.
-    \item No limite, o volume da sucessão de superfícies tende a zero.
+    \item Como $B$ é positivo definido, $V \to 0$ à medida que o tempo avança.
+    \item Isso implica que a dinâmica do sistema se restringe progressivamente a regiões de menor volume no espaço de fase.
+    \item Qualquer superfície inicial $S$ gera uma sequência de superfícies $S_1, S_2, \dots$, onde cada uma tem volume menor que a anterior.
+    \item No limite, a sucessão de superfícies converge para um subconjunto de dimensão inferior, caracterizando um \textbf{atrator dissipativo}.
 \end{itemize}
 
 \end{frame}
+
 
 %---------------------------------------------------
 
 \begin{frame}{Relacionando o modelo genérico com os modelos construídos}
 
 \begin{enumerate}
-    \item \textbf{Modelo QG.} No modelo QG, a energia total é conservada pelos termos quadráticos. Além disso, a dissipação introduzida pelos coeficientes de atrito e viscosidade age de forma análoga ao termo dissipativo do sistema genérico \eqref{eq:sistema-generico}. Assim, o modelo QG possui um atrator de \textbf{volume zero}.
+    \item \textbf{Modelo QG.} No modelo QG, a energia total é aproximadamente conservada pelos termos quadráticos. Além disso, a dissipação introduzida pelos processos de difusão age de forma análoga ao termo dissipativo do sistema genérico \eqref{eq:sistema-generico}. Assim, o modelo QG possui um atrator de \textbf{volume zero}.
+
     
-    \item \textbf{Modelo PE.} Apesar do modelo PE não conservar a energia total, se \( F_1^2 +F_2^2+F_3^2 \) for suficientemente pequeno, a condição \eqref{eq:condicao-sis} é satisfeita. Nesse caso, as trajetórias do sistema permanecem limitadas e o atrator tem \textbf{volume zero}.
+    \item \textbf{Modelo PE.} Apesar do modelo PE não conservar exatamente a energia total, se $F_1^2 +F_2^2+F_3^2$ for suficientemente pequeno, a condição \eqref{eq:condicao-sis} é satisfeita. Nesse caso, as trajetórias do sistema permanecem limitadas e o atrator tem \textbf{volume zero}.
 \end{enumerate}
 
 \end{frame}
-

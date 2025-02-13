@@ -5,7 +5,7 @@
 \begin{frame}{\textit{Modelo PE}: Características do fluido}
 	\begin{itemize}
 		\item \textbf{Homogêneo.} A densidade do fluido é uniforme em todo volume;
-		\item \textbf{Incompressível.} O volume não muda quando submetido à pressão ($\nabla \cdot V = 0$)
+		\item \textbf{Incompressível.} O volume não muda quando submetido à pressão.
 	\end{itemize}
 \end{frame}
 
@@ -34,6 +34,38 @@
 		\end{multicols}
 	\end{small}
 \end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{Modelo PE}: O modelo de água rasa modificado}
+	\begin{small}
+		No artigo, são apresentadas as seguintes equações:
+		\begin{align}
+			\frac{\partial V}{\partial t} & = - ( V \cdot \nabla)V - f \mathbf{k} \times V - g \nabla z + \nu \nabla^2\mathbf{V} \label{eq:agua-rasa-modificada-1}     \\
+			\frac{\partial z}{\partial t} & = - (V \cdot \nabla)(z - h) - (H + z - H)\nabla \cdot \mathbf{V} + \kappa \nabla^2 z + F \label{eq:agua-rasa-modificada-2} 
+		\end{align}
+	\end{small}
+	\begin{scriptsize}
+		Onde:
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $t$: tempo
+				\item $\mathbf{r}$: vetor de posição inicial;
+				\item $H$: profundidade média do fluido;
+				\item $h(r)$: variação da superfície topológica;
+				\item $V(t,r)$: Velocidade horizontal;
+				\item $z(t,r)$: altura da superfície;
+				\item $f$: parâmetro de Coriolis;
+				\item $g$: aceleração da gravidade;
+				\item $F$: forças externas;
+				\item $\kappa$: coeficiente de difusão viscosa;
+				\item $\nu$: coeficiente de difusão térmica;
+				\item $\mathbf{k}$: vetor da vertical.
+			\end{itemize}
+		\end{multicols}
+	\end{scriptsize}
+\end{frame}
+
 
 % ----------------------------
 
@@ -71,37 +103,6 @@
 \end{tikzpicture}
 \end{center}
 
-\end{frame}
-
-% ----------------------------
-
-\begin{frame}{\textit{Modelo PE}: O modelo de água rasa modificado}
-	\begin{small}
-		No artigo, nos é apresentado as seguintes equações:
-		\begin{align}
-			\frac{\partial V}{\partial t} & = - ( V \cdot \nabla)V - f \mathbf{k} \times V - g \nabla z + \nu \nabla^2\mathbf{V} \label{eq:agua-rasa-modificada-1}     \\
-			\frac{\partial z}{\partial t} & = - (V \cdot \nabla)(z - h) - (H + z - H)\nabla \cdot \mathbf{V} + \kappa \nabla^2 z + F \label{eq:agua-rasa-modificada-2} 
-		\end{align}
-	\end{small}
-	\begin{scriptsize}
-		Onde:
-		\begin{multicols}{2}
-			\begin{itemize}
-				\item $t$: tempo
-				\item $\mathbf{r}$: vetor de posição inicial;
-				\item $H$: profundidade média do fluido;
-				\item $h(r)$: variação da superfície topológica;
-				\item $V(t,r)$: Velocidade horizontal;
-				\item $z(t,r)$: altura da superfície;
-				\item $f$: parâmetro de Coriolis;
-				\item $g$: aceleração da gravidade;
-				\item $F$: forças externas;
-				\item $\kappa$: coeficiente de difusão viscosa;
-				\item $\nu$: coeficiente de difusão térmica;
-				\item $\mathbf{k}$: vetor da vertical.
-			\end{itemize}
-		\end{multicols}
-	\end{scriptsize}
 \end{frame}
 
 % ----------------------------
@@ -203,12 +204,12 @@ Definiremos as variáveis $a_i, b_i$ e $c_i$
 
 As variavéis $a_i, b_i$ e $c_i$ são definidas da seguinte forma:
 \begin{align*}
-    a_i &= \alpha_1 \cdot \alpha_j\\
+    a_i &= \alpha_i \cdot \alpha_j\\
     b_i &= \alpha_j \cdot \alpha_i\\
     c_i &= \alpha_j \times \alpha_k \cdot \mathbf{k}
 \end{align*}
 
-Apesar dessa relação ser  válida, Lorenz apresenta outra (esta foi usado na aplicação computacional):
+Apesar dessa relação ser válida, Lorenz apresenta outra (esta foi usada na aplicação computacional):
     \begin{align*}
         b_i &= \frac{1}{2}\left(a_i - a_j - a_k\right)\\
         c_i &= c
@@ -340,18 +341,21 @@ Este modelo também segue as permutações de \eqref{eq:permutacao}.
 
 \begin{frame}{\textit{Modelo QG}: Construção do modelo}
 
+
+
 Da equação \eqref{eq:equacao-principal-1}:
 \begin{itemize}
-    \item Elimina-se todos os termos que contém $x$, inclusive aqueles que tem derivada em relação ao tempo
+    \item Eliminam-se todos os termos que contêm $x$, inclusive aqueles que têm derivada em relação ao tempo.
 \end{itemize}
 
 Das equações \eqref{eq:equacao-principal-2} e \eqref{eq:equacao-principal-3}:
 \begin{itemize}
-    \item Elimina-se todos os termos não lineares ou topográficos 
-    \item Elimina-se todos os termos com $x$ e $z$
+    \item Eliminam-se todos os termos não lineares ou topográficos. 
+    \item Eliminam-se todos os termos que contêm $x$ e $z$.
 \end{itemize}
 
 \end{frame}
+
 
 % ----------------------------
 
@@ -362,15 +366,5 @@ A partir deste processo obtem-se:
     &\quad - ch_ky_j + ch_jy_k + F_i \label{eq:qg-model}
 \end{align}
 
-	\begin{small}
-		Onde:
-			\begin{itemize}
-                \item $(a_ig_0 + 1)\frac{dy_i}{d \tau}$: termo de evolução temporal
-                \item $g_oc(a_k - a_j)y_jy_k$: Advecção da vorticidade planetária
-                \item $-a_i(a_ig_0v_0 + \kappa_0)y_i$: dissipação
-			    \item $- ch_ky_j + ch_jy_k$: efeitos topográficos
-                \item $F_i$: forçamento
-            \end{itemize}
-	\end{small}
 \end{frame}
 
