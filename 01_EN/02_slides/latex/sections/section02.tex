@@ -1,0 +1,95 @@
+\section{Comparison between models} 
+
+%---------------------------------------------------
+
+\begin{frame}{Initial remarks}
+	
+	It is important to note that: for presentation purposes, I have chosen to present the comparison between the models taking \textbf{only} as the basis for the criteria for comparing the models.
+	
+	In the final sections of the article \cite{lorenz1980}, there is a detailed analysis of the structure of the attractor and its relation to the invariant variety, including its qualitative properties.
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Forced dissipative model}
+	First, let's expose a generic forced dissipative model:
+	\begin{equation}
+		\frac{d w_i}{dt} = \sum_{j,k}^N a_{ijk} w_j w_k - \sum_j^N b_{ij} w_j + c_i \label{eq:system-generics}
+	\end{equation}
+	
+	\begin{equation*}
+		A = \sum_{i,j,k}^N a_{ijk} w_i w_j w_k \quad \land \quad B = \sum_{i,j}^N b_{ij} w_i w_j > 0
+	\end{equation*}
+	
+	\begin{equation*}
+		C = \sum_i^N c_i w_i \quad \land \quad R^2 = \sum_i^N w_i^2
+	\end{equation*}
+	
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Forced dissipative model}
+	
+	\begin{itemize}
+		\item $A$ is a cubic polynomial and represents the nonlinear interactions between the system components;
+		\item $B$ is a quadratic polynomial and represents the dissipation of the system;
+		\item $C$ is a linear polynomial and represents the external forcing;
+		\item $R$ is the squared Euclidean norm and represents the total energy.
+	\end{itemize}
+	And let's define $A_1$ and $C_1$ as the maximum of $A$ and $C$ and $B_1$ as the minimum of $B$
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Special Conditions}
+	
+	The models analyzed in the article \cite{lorenz1980} must meet the following conditions:
+	
+	\begin{enumerate}
+		\item The dissipation condition:
+		      \begin{equation}
+		      	B_1^2 - 4A_1C_1 > 0 \label{eq:condition-sis}
+		      \end{equation}
+		      
+		\item Constraint on the coefficients of the system:
+		      \begin{equation*}
+		      	a_{ijk} = 0, \quad \text{se} \quad j=1 \quad \vee \quad k = i
+		      \end{equation*}
+		      
+		\item \textbf{Volume zero}: The rate of change of the volume satisfies
+		      \begin{equation}
+		      	\frac{dV}{dt} = - V \sum_{i=1}^{N} b_{ii}, \label{eq:volume-zero}
+		      \end{equation}
+		      which implies that the volume decreases exponentially over time due to the dissipation of the system.
+	\end{enumerate}
+	
+\end{frame}
+
+%---------------------------------------------------
+
+\begin{frame}{Volume zero}
+	
+	The equation \eqref{eq:volume-zero} indicates that:
+	\begin{itemize}
+		\item Since $B$ is positive definite, $V \to 0$ as time progresses.
+		\item This implies that the dynamics of the system is progressively restricted to regions of smaller volume in phase space.
+		\item Any initial surface $S$ generates a sequence of surfaces $S_1, S_2, \dots$, where each one has a smaller volume than the previous one.
+		\item In the limit, the succession of surfaces converges to a lower-dimensional subset, characterizing a \textbf{dissipative tractor}.
+	\end{itemize}
+	
+\end{frame}
+
+
+%---------------------------------------------------
+
+\begin{frame}{Relating the generic model to the constructed models}
+	
+	\begin{enumerate}
+		\item \textbf{QG model} In the QG model, the total energy is approximately conserved by the quadratic terms. In addition, the dissipation introduced by the diffusion processes acts analogously to the dissipative term of the generic system \eqref{eq:system-generics}. Thus, the QG model has an attractor of \textbf{zero volume}.
+		      
+		          
+		\item \textbf{PE model}. Although the PE model does not exactly conserve total energy, if $F_1^2 +F_2^2+F_3^2$ is small enough, the \eqref{eq:condition-sis} condition is satisfied. In this case, the trajectories of the system remain limited and the attractor has \textbf{zero volume}.
+	\end{enumerate}
+	
+\end{frame}

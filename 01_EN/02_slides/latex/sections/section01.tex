@@ -1,0 +1,315 @@
+\section{Model Construction} 
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Fluid Characteristics}
+	\begin{itemize}
+		\item \textbf{Homogeneous.} The fluid density is uniform throughout the volume;
+		\item \textbf{Incompressible.} The volume does not change when subjected to pressure.
+	\end{itemize}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: The Shallow Water Model}
+			
+	Making the necessary notational adjustments in \cite{salmon1998}, we obtain:
+	\begin{align}
+		\frac{\partial V}{\partial t} + (V \cdot \nabla)V + f \mathbf{k} \times V & = -g \nabla z \label{eq:shallow-water-1} \\
+		\frac{\partial z}{\partial t} + \nabla \cdot (z V)                        & = 0 \label{eq:shallow-water-2}           
+	\end{align}
+			
+	\begin{small}
+		Where:
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $t$: time;
+				\item $\mathbf{r}$: initial position vector;
+				\item $V(t,r)$: Horizontal velocity;
+				\item $z(t,r)$: Surface height;
+				\item $f$: Coriolis parameter;
+				\item $g$: gravitational acceleration;
+				\item $\mathbf{k}$: vertical unit vector.
+			\end{itemize}
+		\end{multicols}
+	\end{small}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: The Modified Shallow Water Model}
+	\begin{small}
+		The following equations are presented in the paper:
+		\begin{align}
+			\frac{\partial V}{\partial t} & = - ( V \cdot \nabla)V - f \mathbf{k} \times V - g \nabla z + \nu \nabla^2\mathbf{V} \label{eq:modified-shallow-water-1}     \\
+			\frac{\partial z}{\partial t} & = - (V \cdot \nabla)(z - h) - (H + z - H)\nabla \cdot \mathbf{V} + \kappa \nabla^2 z + F \label{eq:modified-shallow-water-2} 
+		\end{align}
+	\end{small}
+	\begin{scriptsize}
+		Where:
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $t$: time;
+				\item $\mathbf{r}$: initial position vector;
+				\item $H$: mean fluid depth;
+				\item $h(r)$: topographic surface variation;
+				\item $V(t,r)$: horizontal velocity;
+				\item $z(t,r)$: surface height;
+				\item $f$: Coriolis parameter;
+				\item $g$: gravitational acceleration;
+				\item $F$: external forces;
+				\item $\kappa$: viscous diffusion coefficient;
+				\item $\nu$: thermal diffusion coefficient;
+				\item $\mathbf{k}$: vertical unit vector.
+			\end{itemize}
+		\end{multicols}
+	\end{scriptsize}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Diffusion Processes}
+	In equations \eqref{eq:modified-shallow-water-1} and \eqref{eq:modified-shallow-water-2}, we identify two diffusion processes:
+	\begin{enumerate}
+		\item \textbf{Viscous diffusion:} momentum transfer between parts of the fluid due to viscosity \textit{(e.g., honey)};
+		\item \textbf{Thermal diffusion:} heat transfer by conduction between regions with different temperatures.
+	\end{enumerate}
+			
+	\begin{small}
+		\textit{Note: Both processes tend to homogenize their respective properties.}
+	\end{small}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Formation of New Equations}
+	Using the \textit{Helmholtz Decomposition}, which separates the rotational and divergent parts, applied to equation \eqref{eq:modified-shallow-water-2}, we obtain:
+		
+	\begin{equation}
+		V = \nabla\chi + \mathbf{k} \times \nabla \psi \label{eq:helmholtz-decomposition}
+	\end{equation}
+		
+	Where:
+	\begin{itemize}
+		\item $\chi$: velocity potential (\textit{divergent part});
+		\item $\psi$: stream function (\textit{rotational part});
+		\item $\mathbf{k}$: vertical unit vector.
+	\end{itemize}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Basic Equations}
+	From equations \eqref{eq:modified-shallow-water-1} and \eqref{eq:helmholtz-decomposition}, we derive the following equations:
+	\begin{small}
+		\begin{align}
+			\frac{\partial \nabla^2 \chi}{\partial t} & = -\frac{1}{2}\nabla^2(\nabla \chi \cdot \nabla \chi) - \nabla \chi \cdot \nabla(\nabla^2\psi) \times \mathbf{k} + \nabla^2(\nabla \chi \cdot \nabla \psi \times \mathbf{k}) \nonumber \\
+			                                          & \quad + \nabla \cdot (\nabla^2\psi\nabla\psi) - \frac{1}{2}\nabla^2(\nabla \psi \cdot \nabla \psi) + \nu\nabla^4\chi + f\nabla^2\psi - g\nabla^2z \label{eq:basic-equation-1}          \\
+			\frac{\partial \nabla^2 \psi}{\partial t} & = -\nabla \cdot (\nabla^2\psi\nabla \chi) - \nabla \psi \cdot \nabla(\nabla^2\psi) \times \mathbf{k} - f\nabla^2\chi + \nu\nabla^4\psi\label{eq:basic-equation-2}                      
+		\end{align}
+	\end{small}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Basic Equations}
+	Following the same process, from equations \eqref{eq:modified-shallow-water-2} and \eqref{eq:helmholtz-decomposition}, we obtain:
+	\begin{equation}
+		\frac{\partial z}{\partial t} = -\nabla \cdot (z - h)\nabla \chi - \nabla \psi \cdot \nabla(z - h) \times \mathbf{k} - H\nabla^2\chi + \kappa\nabla^2z + F \label{eq:basic-equation-3}
+	\end{equation}
+	
+	The equations \eqref{eq:basic-equation-1}, \eqref{eq:basic-equation-2}, and \eqref{eq:basic-equation-3} will be the fundamental equations for constructing the low-order model.
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model:} Objectives of the Simplification Process}
+	
+	\begin{enumerate}
+		\item Convert equations \eqref{eq:basic-equation-1}, \eqref{eq:basic-equation-2}, and \eqref{eq:basic-equation-3} into a low-order model.
+		\item Transform an original model composed of primitive atmospheric equations into a system of nine variables.
+	\end{enumerate}
+	    
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Simplification Process}
+	
+	First, we introduce three dimensionless vectors that satisfy the following condition:
+	\begin{equation}
+		\alpha_1 + \alpha_2 + \alpha_3 = 0
+	\end{equation}
+	
+	Together with the following permutation:
+	\begin{equation}
+		(i, j, k) = (1,2,3), (2,3,1), (3,1,2) \label{eq:permutation}
+	\end{equation}
+	
+	We define the variables $a_i, b_i$, and $c_i$
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Simplification Process}
+	
+	The variables $a_i, b_i$, and $c_i$ are defined as follows:
+	\begin{align*}
+		a_i & = \alpha_i \cdot \alpha_j                   \\
+		b_i & = \alpha_j \cdot \alpha_i                   \\
+		c_i & = \alpha_j \times \alpha_k \cdot \mathbf{k} 
+	\end{align*}
+	
+	Although this relation holds, Lorenz presents an alternative (used in computational applications):
+	\begin{align*}
+		b_i & = \frac{1}{2}\left(a_i - a_j - a_k\right) \\
+		c_i & = c                                       
+	\end{align*}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Simplification Process}
+	Finally, we define a length $L$ and construct three orthogonal functions:
+	\begin{equation*}
+		\phi_i = \cos\left(\alpha_i \cdot \frac{r}{L}\right)
+	\end{equation*}
+	
+	From these, we obtain:
+	\small
+	\begin{align*}
+		L^2\nabla^2\phi_i                              & = -a_i\phi_i                        \\
+		L^2\nabla\phi_i \cdot \nabla\phi_k             & = -\frac{1}{2}b_{ik}\phi_i + \cdots \\
+		L^2\nabla \cdot (\phi_j\nabla\phi_k)           & = \frac{1}{2}b_{jk}\phi_i + \cdots  \\
+		L^2\phi_j \cdot \nabla\phi_k \times \mathbf{k} & = -\frac{1}{2}c_{jk}\phi_i + \cdots 
+	\end{align*}
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Simplification Process}
+	From these, we can introduce the normalized dimensionless variables:
+	\begin{align}
+		t    & = f^{-1}\tau \label{eq:dimensionless-variables-start}                 \\
+		\chi & = 2L^2f^2 \sum x_i\phi_i                                              \\
+		\psi & = 2L^2f^2 \sum y_i\phi_i                                              \\
+		z    & = 2L^2f^2g^{-1} \sum z_i\phi_i                                        \\
+		h    & = 2L^2f^2g^{-1} \sum h_i\phi_i                                        \\
+		F    & = 2L^2f^2g^{-1} \sum F_i\phi_i \label{eq:dimensionless-variables-end} 
+	\end{align}
+\end{frame}
+
+% ----------------------------
+% ----------------------------
+% ----------------------------
+\begin{frame}{\textit{PE Model}: Simplification Process}
+	Next, we apply the variables defined in \eqref{eq:dimensionless-variables-start}-\eqref{eq:dimensionless-variables-end} to equations \eqref{eq:basic-equation-1}, \eqref{eq:basic-equation-2}, and \eqref{eq:basic-equation-3}, obtaining the following equations:
+	
+	\begin{small}
+		\begin{align}
+			a_i\frac{dx_i}{d\tau} & = a_ib_ix_ix_k - c(a_i - a_k)x_iy_k  c(a_i - a_j)y_ix_k\nonumber                                           \\
+			                      & -2c^2y_iy_k - \nu_0a_i^2x_i + a_iy_i - a_iz_i \label{eq:primary-equation-1}                                \\
+			a_i\frac{dy_i}{d\tau} & = -a_ib_kx_iy_k - a_ib_iy_ix_k + c(a_k - a_i)y_iy_k - a_ix_i - \nu_0a_i^2y_i \label{eq:primary-equation-2} \\
+			\frac{dz_i}{d\tau}    & = -b_kx_i(z_k - h_k) - b_i(z_i - h_i)x_k + cy_i(z_k - h_k) \nonumber                                       \\
+			                      & - c(z_i - h_i)y_k + g_0a_ix_i - \kappa_0a_iz_i + F_i \label{eq:primary-equation-3}                         
+		\end{align}
+	\end{small}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{\textit{PE Model}: Variables}
+	
+	\begin{itemize}
+		\item $x$ – \textbf{Velocity potential}: related to flow divergence.
+		\item $y$ – \textbf{Stream function}: associated with fluid vorticity.
+		\item $z$ – \textbf{Surface elevation}: height of the perturbed surface.
+	\end{itemize}
+	
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model}: Variables}
+	\begin{itemize}
+		\item $\frac{dx}{dt}$ – Gravity waves.
+		\item $\frac{dy}{dt}$ – Associated with fluid vorticity.
+		\item $\frac{dz}{dt}$ – Related to surface height variation and its interaction with vorticity.
+	\end{itemize}
+	
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model:} Brief Observations}
+	
+	\begin{itemize}
+		\item Variables with index 1 correspond to zonally uniform velocity and height fields.
+		      
+		\item Variables with indices 2 or 3 represent components associated with waves or large-scale eddies.
+		      
+		\item This model will be used in study simulations, following the permutation given in \eqref{eq:permutation}.
+	\end{itemize}
+	
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model:} Another Simplification Process}
+	
+	First, we define $U$ and $V$:
+	\begin{align}
+		U_i & = -b_ix_i + cy_i \\
+		V_i & = -b_kx_i - cy_i 
+	\end{align}
+	
+	Next, $X_i$ and $Y_i$:
+	\begin{align}
+		X_i & = -a_ix_i \\
+		Y_i & = -a_iy_i 
+	\end{align}
+	
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{PE Model:} Another Simplification Process}
+	
+	Applying $U, V, X_i$, and $Y_i$ in \eqref{eq:primary-equation-1}, \eqref{eq:primary-equation-2}, and \eqref{eq:primary-equation-3}, we obtain:
+	
+	\begin{align}
+		\frac{dX_i}{d\tau} & = U_iU_k + V_jV_k - \nu_0a_iX_i + Y_i + a_iz_i \label{eq:simplified-equation-1}                    \\
+		\frac{dY_i}{d\tau} & = U_iY_k + Y_jV_k - X_i - \nu_0a_iY_i \label{eq:simplified-equation-2}                             \\
+		\frac{dz_i}{d\tau} & = U_i(z_k - h_k) + (z_j - h_j)V_k - g_0X_i - \kappa_0a_iz_i + F_i \label{eq:simplified-equation-3} 
+	\end{align}
+	
+	This model also follows the permutations of \eqref{eq:permutation}.
+	
+\end{frame}
+
+%---------------------------
+
+\begin{frame}{\textit{QG Model}: Model Construction}
+	
+	From equation \eqref{eq:primary-equation-1}:
+	\begin{itemize}
+		\item All terms containing $x$ are eliminated, including those with time derivatives.
+	\end{itemize}
+	
+	From equations \eqref{eq:primary-equation-2} and \eqref{eq:primary-equation-3}:
+	\begin{itemize}
+		\item All nonlinear or topographic terms are eliminated.
+		\item All terms containing $x$ and $z$ are eliminated.
+	\end{itemize}
+	
+\end{frame}
+
+% ----------------------------
+
+\begin{frame}{\textit{QG Model}: Model Construction}
+	Following this process, we obtain:
+	\begin{align}
+		(a_ig_0 + 1)\frac{dy_i}{d\tau} & = g_0c(a_k - a_j)y_jy_k - a_i(a_ig_0v_0 + \kappa_0)y_i\nonumber \\ 
+		                               & \quad - ch_ky_j + ch_jy_k + F_i \label{eq:qg-model}             
+	\end{align}
+	
+\end{frame}
