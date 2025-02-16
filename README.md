@@ -21,4 +21,4 @@ Este projeto não aceitará contribuições após sua entrega final. No entanto,
 This project will not accept contributions after its final submission. However, following the terms of the [LICENSE](./LICENSE), the repository can be freely cloned and modified for future development.
 
 
-> 🔄 Note: English translation is in progress. Some sections may still be only available in Portuguese.
+> 🔄 Note: Translation in review
