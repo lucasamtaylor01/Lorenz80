@@ -12,12 +12,11 @@ __pycache__/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
-# Julia
-*.jl.cov
-*.jl.*.cov
-*.jl.mem
-*.jl.*.mem
-
 # VSCode
 .vscode/
 
+# JetBrains IDEs (PyCharm, IntelliJ, etc.)
+.idea/
+
+# Dados gerados automaticamente
+data/*.csv
