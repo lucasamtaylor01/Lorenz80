@@ -1,0 +1,23 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+*.jl.*.mem
+
+# VSCode
+.vscode/
+
