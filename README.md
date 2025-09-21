@@ -10,9 +10,8 @@ This project is a study of the paper "Attractor Sets and Quasi-Geostrophic Equil
 2. Install the dependencies.
 3. Run the selected program.
 
-## 🤝 Contributing
+## 🤝 Contribution
+Contributions are welcome! Feel free to open an issue or submit a pull request via GitHub if you have suggestions, improvements, or feedback.
 
-This project will not accept contributions after its final submission. However, following the terms of the [LICENSE](./LICENSE), the repository can be freely cloned and modified for future development.
-
-
-> 🔄 Note: Just studying different ways to do the simulations
+## 📄 License
+This project is currently licensed under the [MIT License](LICENSE).
