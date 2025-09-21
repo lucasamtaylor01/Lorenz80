@@ -29,6 +29,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request v
 ## 📄 License
 This project is currently licensed under the [MIT License](LICENSE).
 
-🔍 Keywords 
+## 🔍 Keywords 
 
 Lorenz 1980 · Lorenz-80 model · chaotic systems · nonlinear dynamics · atmospheric dynamics · quasi-geostrophic flow · climate modeling · Python · numerical simulation
