@@ -19,4 +19,6 @@ __pycache__/
 .idea/
 
 # Dados gerados automaticamente
-data/*.csv
+*.csv
+img/
+data/
