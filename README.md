@@ -11,7 +11,7 @@ In this same article, Lorenz also presents the PE (Primitive Equations) model an
 from which the Lorenz-80 formulation is derived as a simplified low-order representation.
 
 It also includes an implementation of the BE model (Balance equations) from: *[“Intermediate Model Solutions to the Lorenz Equations: Strange Attractors and Other Phenomena”](
-https://journals.ametsoc.org/view/journals/atsc/39/1/1520-0469_1982_039_0003_imsttl_2_0_co_2.xml)* with adaptations inspired by: *[“Stochastic rectification of fast oscillations on slow manifold closures”](
+https://journals.ametsoc.org/view/journals/atsc/39/1/1520-0469_1982_039_0003_imsttl_2_0_co_2.xml)* with adaptations from *[“Stochastic rectification of fast oscillations on slow manifold closures”](
 https://www.pnas.org/doi/10.1073/pnas.2113650118)*
 
 This repository includes:
