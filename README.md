@@ -2,19 +2,26 @@
 
 ## 📝 Description
 
-This repository contains an **implementation and study of the Lorenz 1980 model (Lorenz-80)**, originally introduced by E. D. Lorenz in his 1980 paper *“[Attractor Sets and Quasi-Geostrophic Equilibrium](https://journals.ametsoc.org/view/journals/atsc/37/8/1520-0469_1980_037_1685_asaqge_2_0_co_2.xml)”*.  
+This repository contains an implementation and study of the Lorenz 1980 model (Lorenz-80), 
+originally introduced by E. D. Lorenz in his 1980 paper:
+*[Attractor Sets and Quasi-Geostrophic Equilibrium](
+https://journals.ametsoc.org/view/journals/atsc/37/8/1520-0469_1980_037_1685_asaqge_2_0_co_2.xml)*
 
-The Lorenz-80 model is a simplified representation of **quasi-geostrophic atmospheric dynamics** and has become a classic example in the study of **chaotic systems**, **low-order climate models**, and **nonlinear dynamics**.  
+In this same article, Lorenz also presents the PE (Primitive Equations) model and the QG (Quasi-Geostrophic) model, 
+from which the Lorenz-80 formulation is derived as a simplified low-order representation.
 
-In this project you will find:
+It also includes an implementation of the BE model (Balance equations) from: *[“Intermediate Model Solutions to the Lorenz Equations: Strange Attractors and Other Phenomena”](
+https://journals.ametsoc.org/view/journals/atsc/39/1/1520-0469_1982_039_0003_imsttl_2_0_co_2.xml)* with adaptations inspired by: *[“Stochastic rectification of fast oscillations on slow manifold closures”](
+https://www.pnas.org/doi/10.1073/pnas.2113650118)*
 
-- Implementation of the **Lorenz-1980 equations** in Python.  
-- **Deterministic numerical simulations** of the Lorenz-80 model.  
-- **Time series generation**, analysis of the **chaotic attractor**, and sensitivity to initial conditions.  
-- **2D and 3D visualizations** of trajectories and attractors.  
-- Scripts to export results as CSV files and plots for further analysis.  
+This repository includes:
 
-This repository is useful for students and researchers interested in **atmospheric science**, **climate modeling**, **chaotic dynamics**, and **numerical methods**.
+- Implementation of the Lorenz-1980 model
+- Implementation of the BE model
+- Deterministic simulations and visualizations
+- Time series, attractors, and sensitivity experiments
+- CSV export utilities and scientific figures
+
 
 
 ## ⚙️ Installation
