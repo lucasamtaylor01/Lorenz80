@@ -22,13 +22,17 @@ This repository includes:
 - Time series, attractors, and sensitivity experiments
 - CSV export utilities and scientific figures
 
-
-
 ## ⚙️ Installation
 
 1. Clone the repository.
+   ```bash
+   git clone https://github.com/lucasamtaylor01/Lorenz80.git
+   ```
 2. Install the dependencies.
-3. Run the selected program.
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run `main.py`
 
 ## 🤝 Contribution
 Contributions are welcome! Feel free to open an issue or submit a pull request via GitHub if you have suggestions, improvements, or feedback.
