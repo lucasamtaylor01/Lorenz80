@@ -40,3 +40,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request v
 ## 📄 License
 This project is currently licensed under the [MIT License](LICENSE).
 
+## 🤖 Good Use of AI
+This project was developed with the assistance of [GitHub Copilot](https://github.com/features/copilot).
+
