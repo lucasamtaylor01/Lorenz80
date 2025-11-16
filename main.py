@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import pandas as pd
 
@@ -69,19 +70,19 @@ while True:
 
         graphic_option = int(input("\nChoose the graphic option: "))
         if graphic_option == 1:
-            print("Plot saved at: img/", plot.plot_y1y2(df, model_type))
+            print(f"Plot saved at: {plot.plot_y1y2(df, model_type)}")
         elif graphic_option == 2:
-            print("Plot saved at: img/", plot.plot_y1y3(df, model_type))
+            print(f"Plot saved at: {plot.plot_y1y3(df, model_type)}")
         elif graphic_option == 3:
-            print("Plot saved at: img/", plot.plot_y2y3(df, model_type))
+            print(f"Plot saved at: {plot.plot_y2y3(df, model_type)}")
         elif graphic_option == 4:
-            print("Plot saved at: img/", plot.plot_temporal(df, model_type, "y1"))
+            print(f"Plot saved at: {plot.plot_temporal(df, model_type, 'y1')}")
         elif graphic_option == 5:
-            print("Plot saved at: img/", plot.plot_temporal(df, model_type, "y2"))
+            print(f"Plot saved at: {plot.plot_temporal(df, model_type, 'y2')}")
         elif graphic_option == 6:
-            print("Plot saved at: img/", plot.plot_temporal(df, model_type, "y3"))
+            print(f"Plot saved at: {plot.plot_temporal(df, model_type, 'y3')}")
         elif graphic_option == 7:
-            print("Plot saved at: img/", plot.temporal_evolution_y(df, model_type))
+            print(f"Plot saved at: {plot.temporal_evolution_y(df, model_type)}")
         elif graphic_option == 8:
             plot.generate_all_plots(df, model_type)
             print("Plots generated successfully.")
@@ -99,15 +100,15 @@ while True:
 
         graphic_option = int(input("Selected option: "))
         if graphic_option == 1:
-            print("Plot saved at:", plot.plot_y1y2(df, model_type))
+            print(f"Plot saved at: {plot.plot_y1y2(df, model_type)}")
         elif graphic_option == 2:    
-            print("Plot saved at:", plot.plot_y1y3(df, model_type))
+            print(f"Plot saved at: {plot.plot_y1y3(df, model_type)}")
         elif graphic_option == 3:    
-            print("Plot saved at:", plot.plot_y2y3(df, model_type))
+            print(f"Plot saved at: {plot.plot_y2y3(df, model_type)}")
         elif graphic_option == 4:
-            print("Plot saved at:", plot.plot_xyz_temporal(df, model_type))
+            print(f"Plot saved at: {plot.plot_xyz_temporal(df, model_type)}")
         elif graphic_option == 5:
-            print("Plot saved at:", plot.temporal_evolution_y(df, model_type))
+            print(f"Plot saved at: {plot.temporal_evolution_y(df, model_type)}")
         elif graphic_option == 6:
             plot.generate_all_plots(df, model_type)
             print("Plots generated successfully.")
@@ -121,9 +122,11 @@ while True:
         if confirm == 'n':
             print("Closing the program.")
             exit_confirm = True
-            exit()
+            break
         elif confirm == 'y':
             break
         else:
-            print("Invalid option. Please answer with 'y' or 'n'.")
+            print("Invalid option. Please enter 'y' or 'n'.")
+    if exit_confirm:
+        break
 

@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from pathlib import Path
@@ -17,16 +18,17 @@ plt.rcParams.update({
 
 
 def get_output_dir(model_type):
+    base_img_dir = "img"
     if model_type == 1:
-        outdir = Path("img/PE")
+        outdir = os.path.join(base_img_dir, "PE")
     elif model_type == 2:
-        outdir = Path("img/BE")
+        outdir = os.path.join(base_img_dir, "BE")
     elif model_type == 3:
-        outdir = Path("img/QG")
+        outdir = os.path.join(base_img_dir, "QG")
     else:
         raise ValueError("model_type must be 1, 2, 3, or 4")
     
-    outdir.mkdir(parents=True, exist_ok=True)
+    os.makedirs(outdir, exist_ok=True)
     return outdir
 
 def get_model_prefix(model_type):
@@ -47,6 +49,7 @@ def plot_y2y3(df, model_type):
     prefix = get_model_prefix(model_type)
     filename = f"{prefix}y3y2.png"
     outdir = get_output_dir(model_type)
+    save_path = os.path.join(outdir, filename)
 
     plt.figure(figsize=(12, 5))
     plt.plot(y3, y2, color="#0910aa")
@@ -55,10 +58,10 @@ def plot_y2y3(df, model_type):
     plt.xlabel("$y_3$")
     plt.ylabel("$y_2$")
     plt.grid(True)
-    plt.savefig(outdir / filename)
+    plt.savefig(save_path)
     plt.close()
     
-    return filename
+    return save_path
 
 def plot_y1y3(df, model_type):
     
@@ -66,6 +69,7 @@ def plot_y1y3(df, model_type):
     prefix = get_model_prefix(model_type)
     filename = f"{prefix}y1y3.png"
     outdir = get_output_dir(model_type)
+    save_path = os.path.join(outdir, filename)
 
     plt.figure(figsize=(12, 5))
     plt.plot(y1, y3, color="#0910aa")
@@ -77,10 +81,10 @@ def plot_y1y3(df, model_type):
     plt.xlabel("$y_1$")
     plt.ylabel("$y_3$")
     plt.grid(True)
-    plt.savefig(outdir / filename)
+    plt.savefig(save_path)
     plt.close()
     
-    return filename
+    return save_path
 
 def plot_y1y2(df, model_type):
 
@@ -88,6 +92,7 @@ def plot_y1y2(df, model_type):
     prefix = get_model_prefix(model_type)
     filename = f"{prefix}y1y2.png"
     outdir = get_output_dir(model_type)
+    save_path = os.path.join(outdir, filename)
 
     plt.figure(figsize=(12, 5))
     plt.plot(y1, y2, color="#0910aa")
@@ -96,10 +101,10 @@ def plot_y1y2(df, model_type):
     plt.xlabel("$y_1$")
     plt.ylabel("$y_2$")
     plt.grid(True)
-    plt.savefig(outdir / filename)
+    plt.savefig(save_path)
     plt.close()
     
-    return filename
+    return save_path
 
 def plot_xyz_temporal(df, model_type):
     t, x1, y1, z1 = df["time"], df["x1"], df["y1"], df["z1"]
@@ -107,6 +112,7 @@ def plot_xyz_temporal(df, model_type):
     prefix = get_model_prefix(model_type)
     filename = f"{prefix}time_x1y1z1.png"
     outdir = get_output_dir(model_type)
+    save_path = os.path.join(outdir, filename)
 
     plt.figure(figsize=(12, 8))
     plt.plot(t, x1, label="$x_1$", color="#0b8126", linestyle="-")
@@ -118,10 +124,10 @@ def plot_xyz_temporal(df, model_type):
     plt.title("Temporal evolution of $x_1$, $y_1$ and $z_1$")
     plt.legend()
     plt.grid(True)
-    plt.savefig(outdir / filename)
+    plt.savefig(save_path)
     
     plt.close()
-    return filename
+    return save_path
 
 def plot_temporal(df, model_type, yi):
     t = df["time"]
@@ -141,6 +147,7 @@ def plot_temporal(df, model_type, yi):
         raise ValueError("yi must be 1, 2, or 3")
     
     filename = f"{prefix}time{ylabel}.png"
+    save_path = os.path.join(outdir, filename)
     
     plt.figure(figsize=(12, 5))
     plt.plot(t, y, color="#0910aa")
@@ -148,17 +155,18 @@ def plot_temporal(df, model_type, yi):
     plt.xlabel("Time")
     plt.ylabel(f"${ylabel}$")
     plt.grid(True)
-    plt.savefig(outdir / filename)
+    plt.savefig(save_path)
     
     plt.close()
     
-    return filename
+    return save_path
 
 def temporal_evolution_y(df, model_type):
     VARS = ["y1", "y2", "y3"]
     prefix = get_model_prefix(model_type)
     filename = f"{prefix}temporal_evolution_y.png"
     outdir = get_output_dir(model_type)
+    save_path = os.path.join(outdir, filename)
     
     ylims = {}
     for v in VARS:
@@ -186,10 +194,10 @@ def temporal_evolution_y(df, model_type):
     axes[0].set_title("Stacked time series of $y_1,y_2,y_3$", pad=8)
     axes[-1].set_xlabel("Time")
     plt.subplots_adjust(hspace=0.12, top=0.95, bottom=0.07, left=0.07, right=0.985)
-    fig.savefig(outdir / filename)
+    fig.savefig(save_path)
     plt.close(fig)
     
-    return filename
+    return save_path
 
 def generate_all_plots(df, model_type):
     generated_plots = []
