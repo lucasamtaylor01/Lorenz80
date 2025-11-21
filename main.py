@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 import pandas as pd
 
-from aux import simulations as sim
-from aux import initial_conditions as ic
-from aux import plot
+from utils import simulations as sim
+from utils import initial_conditions as ic
+from utils import plot
 
 BASE = Path(__file__).resolve().parent
 DATADIR = BASE / "data"
