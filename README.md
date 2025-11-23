@@ -29,10 +29,15 @@ This repository includes:
    git clone https://github.com/lucasamtaylor01/Lorenz80.git
    ```
 2. Install the dependencies.
+   **Linux/macOS:**
    ```bash
    python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
    ```
-3. Run `main.py`
+   **Windows (CMD)**
+   ```bash
+   python -m venv .venv && .venv\Scripts\activate.bat && pip install -r requirements.txt
+   ```
+4. Run `main.py`
 
 ## 🤝 Contribution
 Contributions are welcome! Feel free to open an issue or submit a pull request via GitHub if you have suggestions, improvements, or feedback.
